@@ -19,6 +19,7 @@ class BeerAdviser implements ActionListener
    JButton nextButton;
    JButton prevButton;
    JPanel choicesPanel;
+   ImagePanel graphicsPanel;
    ButtonGroup choicesButtons;
    ResourceBundle beerResources;
  
@@ -48,13 +49,13 @@ class BeerAdviser implements ActionListener
       /* Specify FlowLayout manager. */
       /*=============================*/
         
-      jfrm.getContentPane().setLayout(new GridLayout(3,1));  
+      jfrm.getContentPane().setLayout(new BorderLayout());  
  
       /*=================================*/
       /* Give the frame an initial size. */
       /*=================================*/
      
-      jfrm.setSize(350,200);  
+      jfrm.setSize(750,500);  
   
       /*=============================================================*/
       /* Terminate the program when the user closes the application. */
@@ -69,6 +70,7 @@ class BeerAdviser implements ActionListener
       JPanel displayPanel = new JPanel(); 
       displayLabel = new JLabel();
       displayPanel.add(displayLabel);
+      displayPanel.setBackground(Color.green);
       
       /*===========================*/
       /* Create the choices panel. */
@@ -76,6 +78,7 @@ class BeerAdviser implements ActionListener
      
       choicesPanel = new JPanel(); 
       choicesButtons = new ButtonGroup();
+      choicesPanel.setBackground(Color.blue);
       
       /*===========================*/
       /* Create the buttons panel. */
@@ -92,15 +95,26 @@ class BeerAdviser implements ActionListener
       nextButton.setActionCommand("Next");
       buttonPanel.add(nextButton);
       nextButton.addActionListener(this);
+      
+      buttonPanel.setBackground(Color.gray);
+      
+      
+      /*===========================*/
+      /* Create the graphics Panel. */
+      /*===========================*/
+
+      graphicsPanel = new ImagePanel("img/beer.jpg"); 
      
       /*=====================================*/
       /* Add the panels to the content pane. */
       /*=====================================*/
+     
+      jfrm.getContentPane().add(displayPanel,BorderLayout.NORTH); 
+      jfrm.getContentPane().add(choicesPanel,BorderLayout.WEST); 
+      jfrm.getContentPane().add(buttonPanel,BorderLayout.EAST);
+      jfrm.getContentPane().add(graphicsPanel,BorderLayout.CENTER);
+      //jfrm.setLayout(null);
       
-      jfrm.getContentPane().add(displayPanel); 
-      jfrm.getContentPane().add(choicesPanel); 
-      jfrm.getContentPane().add(buttonPanel); 
-
       /*========================*/
       /* Load the auto program. */
       /*========================*/
@@ -115,7 +129,8 @@ class BeerAdviser implements ActionListener
       /*====================*/
       /* Display the frame. */
       /*====================*/
-      
+     
+      jfrm.setLocationRelativeTo(null);
       jfrm.setVisible(true);  
      }  
 
@@ -150,6 +165,7 @@ class BeerAdviser implements ActionListener
          nextButton.setActionCommand("Restart");
          nextButton.setText(beerResources.getString("Restart")); 
          prevButton.setVisible(true);
+         //graphicsPanel.setImage("");
         }
       else if (fv.getFactSlot("state").toString().equals("initial"))
         {
