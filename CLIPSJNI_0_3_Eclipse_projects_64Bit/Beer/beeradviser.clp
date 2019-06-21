@@ -247,21 +247,21 @@
                      (valid-answers No Yes))))
                      
                      
-   (defrule determine-wordly ""
+   (defrule determine-worldly ""
    
    (logical (pattorhead No))
 
    =>
 
-   (assert (UI-state (display WordlyQuestion)
-                     (relation-asserted wordly)
+   (assert (UI-state (display WorldlyQuestion)
+                     (relation-asserted worldly)
                      (response No)
                      (valid-answers No Yes))))      
                      
                      
    (defrule determine-bag ""
    
-   (logical (wordly No))
+   (logical (worldly No))
 
    =>
 
@@ -446,7 +446,7 @@
 
    =>
 
-   (assert (UI-state (display GuinessBeer)
+   (assert (UI-state (display GuinnessBeer)
                      (state final))))
                      
  	(defrule result-change-yes ""
@@ -518,7 +518,7 @@
 
    =>
 
-   (assert (UI-state (display WordlyBeer)
+   (assert (UI-state (display WorldlyBeer)
                      (state final))))
                     
   (defrule result-bag ""

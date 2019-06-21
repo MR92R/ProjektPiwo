@@ -165,19 +165,22 @@ class BeerAdviser implements ActionListener
          nextButton.setActionCommand("Restart");
          nextButton.setText(beerResources.getString("Restart")); 
          prevButton.setVisible(true);
-         //graphicsPanel.setImage("");
+         graphicsPanel.setImage("img/"+fv.getFactSlot("display").toString()+".jpg");
         }
       else if (fv.getFactSlot("state").toString().equals("initial"))
         {
          nextButton.setActionCommand("Next");
          nextButton.setText(beerResources.getString("Next"));
          prevButton.setVisible(false);
+         graphicsPanel.setImage("img/beer.jpg");
+
         }
       else
         { 
          nextButton.setActionCommand("Next");
          nextButton.setText(beerResources.getString("Next"));
          prevButton.setVisible(true);
+         graphicsPanel.setImage("img/beer.jpg");
         }
       
       /*=====================*/
