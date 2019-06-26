@@ -186,7 +186,7 @@
    =>
 
    (assert (UI-state (display PayingQuestion)
-                     (relation-asserted paying)
+                     (relation-asserted change)
                      (response No)
                      (valid-answers No Yes))))
                     
